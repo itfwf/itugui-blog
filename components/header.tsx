@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false)
@@ -9,7 +10,7 @@ export default function Header() {
     return (
         <header className="bg-gray-900 text-white">
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                <div className="flex items-center">
+                <Link className="flex items-center" href={"/"}>
                     <svg
                         width="40"
                         height="40"
@@ -30,7 +31,7 @@ export default function Header() {
                         </g>
                     </svg>
                     <span className="text-xl font-bold">IOAN TUGUI</span>
-                </div>
+                </Link>
 
                 <nav className="hidden md:flex space-x-4">
                     <a href="/about" className="hover:text-blue-400 transition-colors">About</a>
