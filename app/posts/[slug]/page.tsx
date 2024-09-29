@@ -1,5 +1,5 @@
 
-export default function PostPage({ params }) {
+export default function PostPage({ params }: { params: { slug: string } }) {
     // const postData = getPostData(params.slug);
 
     return (
