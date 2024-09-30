@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+
 // const inter = Inter({
 //   subsets: ["latin"],
 //   variable: "--font-inter",
@@ -12,8 +13,21 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: "Engineering Hub",
   description: "Software engineering blog and portfolio",
+  icons: {
+    icon: [
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/images/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/images/favicon-16x16.png' },
+    ],
+    apple: '/images/apple-touch-icon.png',
+  },
+  applicationName: 'MyApp',
 };
-
+export const viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+};
 export default function RootLayout({
   children,
 }: Readonly<{
