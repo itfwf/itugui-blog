@@ -29,12 +29,6 @@ export async function generateMetadata(
             description: postData.excerpt,
             url: `https://www.itugui.com/posts/${params.slug}`,
             type: 'article',
-            article: {
-                publishedTime: postData.date, // Date the article was published
-                modifiedTime: postData.updatedAt || postData.date, // Last modified time, fallback to publish date if not updated
-                authors: ['Author Name'], // Add a dynamic author if available in postData
-                tags: postData.tags,
-            },
             images: [
                 {
                     url: `https://www.itugui.com/images/${params.slug}.png`,
@@ -54,14 +48,10 @@ export async function generateMetadata(
                 },
             ],
         },
+        other: {
+            publish_date: postData.date,
+        }
 
-        author: 'Ioan Tugui',
-        article: {
-            published_time: postData.date,
-            modified_time: postData.updatedAt || postData.date,
-            section: 'Technology',
-            tags: postData.tags,
-        },
     };
 }
 
