@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
+import { remark, } from 'remark';
 import html from "remark-html";
 
 export type PostPreview = {
@@ -19,8 +19,11 @@ export type Post = {
   slug: string;
   title: string;
   date: string;
+  updatedAt: string;
   content: string;
+  excerpt: string;
   readTime: string;
+  tags: string[];
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -74,7 +77,7 @@ export function getPostData(slug: string): Post {
   } as Post;
 }
 
-export default async function markdownToHtml(markdown:string) {
+export default async function markdownToHtml(markdown: string) {
   const result = await remark().use(html).process(markdown);
   return result.toString();
 }
