@@ -16,7 +16,7 @@ export default function Footer() {
                         className="flex-grow px-4 py-2 rounded-md text-gray-900 dark:text-white dark:bg-gray-800"
                         required
                     />
-                    <Button type="submit" variant="secondary" size="lg">
+                    <Button type="submit" variant="secondary" disabled size="lg">
                         Subscribe
                     </Button>
                 </form>

@@ -1,3 +1,4 @@
+import { RecentPosts } from "@/components/recent-posts"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -54,6 +55,7 @@ export default function AboutMe() {
                             <Badge>Entity Framework</Badge>
                             <Badge>SQL Server</Badge>
                             <Badge>AWS</Badge>
+                            <Badge>GraphQL</Badge>
                             <Badge>RESTful APIs</Badge>
                             <Badge>Microservices</Badge>
                             <Badge>Docker</Badge>
@@ -62,44 +64,7 @@ export default function AboutMe() {
                     </section>
 
                     <section>
-                        <h2 className="mb-4 text-2xl font-semibold">Recent Blog Posts</h2>
-                        {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Exploring .NET 6 Features</CardTitle>
-                                    <CardDescription>Posted on May 15, 2023</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        In this post, we dive into the exciting new features introduced in .NET 6 and how they can improve
-                                        your development workflow.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Building Microservices with ASP.NET Core</CardTitle>
-                                    <CardDescription>Posted on April 2, 2023</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        Learn how to design and implement a microservices architecture using ASP.NET Core and Docker.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                            <Card>
-                                <CardHeader>
-                                    <CardTitle>Optimizing Entity Framework Core Performance</CardTitle>
-                                    <CardDescription>Posted on March 10, 2023</CardDescription>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-muted-foreground">
-                                        Discover tips and tricks to boost your Entity Framework Core performance and make your database
-                                        queries more efficient.
-                                    </p>
-                                </CardContent>
-                            </Card>
-                        </div> */}
+                        <RecentPosts />
                     </section>
                 </main>
             </div>
