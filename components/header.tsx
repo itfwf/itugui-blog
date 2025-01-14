@@ -30,18 +30,13 @@ export default function Header() {
                             <path d="M16.47 7.22a1 1 0 011.06-.22 1 1 0 01.22 1.06l-.07.16L21.78 12l-4.25 4.25a1 1 0 01-1.41 0 1 1 0 01-.08-1.32l.08-.1L20.19 12l-3.72-3.72a1 1 0 010-1.41l4.25-4.25-4.25 4.25z" />
                         </g>
                     </svg>
-                    <span className="text-xl font-bold">IOAN TUGUI</span>
+                    <span className="text-xl font-bold">ITUGUI</span>
                 </Link>
 
                 <nav className="hidden md:flex space-x-4">
                     <a href="/about" className="hover:text-blue-400 transition-colors">About</a>
-                    <a href="/posts" className="hover:text-blue-400 transition-colors">Posts</a>
-                    <a href="/contact" className="hover:text-blue-400 transition-colors">Contact</a>
+                    <a href="/blog" className="hover:text-blue-400 transition-colors">Posts</a>
                 </nav>
-
-                {/* <div className="hidden md:block">
-                    <Button className='w-0 h-0' variant="outline"></Button>
-                </div> */}
 
                 <button
                     className="md:hidden"
@@ -56,12 +51,8 @@ export default function Header() {
                 <div className="md:hidden">
                     <nav className="px-4 pt-2 pb-4 space-y-2">
                         <a href="/about" className="block hover:text-blue-400 transition-colors">About</a>
-                        <a href="/posts" className="block hover:text-blue-400 transition-colors">Posts</a>
-                        <a href="/contact" className="block hover:text-blue-400 transition-colors">Contact</a>
+                        <a href="/blog" className="block hover:text-blue-400 transition-colors">Posts</a>
                     </nav>
-                    {/* <div className="px-4 pb-4">
-                        <Button variant="outline" className="w-full">Get Started</Button>
-                    </div> */}
                 </div>
             )}
         </header>

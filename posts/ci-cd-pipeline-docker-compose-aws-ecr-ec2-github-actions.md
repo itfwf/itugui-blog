@@ -15,6 +15,12 @@ image: ci-cd-pipeline-aws-github-actions.webp
 
 *TL-DR;* ***Delivering a new version of product through a series of steps.***
 
+<!-- ## CI/CD Pipeline Steps: From Code to Production 🚀
+
+![](/images/ci-cd-pipeline-docker-compose-aws-ecr-ec2-github-actions/ci-cd-pipeline.svg) 
+-->
+
+
 ### What is Continuous integration(CI)?
 
 As any development workflow, to merge your feature/fix that you are working on into *main* branch, you create a branch, commit often and then you'll raise a PR. Here the CI takes place.
@@ -26,7 +32,4 @@ Automatically execute a series of steps: **build**, **test**, **run static code 
 * EC2 instance running and Docker installed. [Great article to install docker into EC2](https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/).
 * GitHub repository & GitHub Actions enabled
 
-
-## CI/CD Pipeline Steps: From Code to Production 🚀
-
-![](/images/ci-cd-pipeline-docker-compose-aws-ecr-ec2-github-actions/ci-cd-pipeline.svg)
+## Set 1 - Setup AWS
