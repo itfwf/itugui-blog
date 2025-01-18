@@ -1,5 +1,5 @@
 import { Post } from "@/lib/posts"
-import { CalendarIcon, ClockIcon, UserIcon } from "lucide-react";
+import { CalendarIcon, ClockIcon } from "lucide-react";
 import Image from 'next/image'
 import { Badge } from "./ui/badge";
 type Args = {
