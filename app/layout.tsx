@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Dev Hub - .NET, React, and Cloud Development Blog",
+  title: ".NET, React, and Cloud Development Dev Blog",
   description: "Follow my journey as a .NET developer tackling React and Cloud challenges. Discover tips, tricks, and real-world solutions for modern software engineering and web development.",
   keywords: ['.NET', 'React', 'AWS', 'developer blog', 'cloud computing', 'web development', 'coding challenges', 'serverless', 'software engineering'],
   openGraph: {
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     description: 'Follow my journey as a .NET developer tackling React and AWS challenges. Discover tips, tricks, and real-world solutions for modern software engineering and web development.',
     url: 'https://itugui.com',
     type: 'website',
-    siteName: 'ITugui - Dev Hub Blog',
+    siteName: 'Dev Blog',
     locale: 'en_US',
   },
 
   twitter: {
     card: 'summary',
-    title: 'Dev Hub - .NET, React, and AWS Development Blog',
+    title: '.NET, React, and AWS Development Dev Blog',
     description: 'Follow my journey as a .NET developer tackling React and AWS challenges. Discover tips, tricks, and real-world solutions for modern software engineering and web development.',
     site: '@itugui',
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     apple: '/images/apple-touch-icon.png',
   },
   authors: [{ name: '@itugui', url: 'https://itugui.com' }],
-  applicationName: 'ITugui - Dev Hub Blog',
+  applicationName: 'Dev Blog',
   robots: {
     index: true,
     follow: true,

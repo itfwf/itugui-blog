@@ -2,7 +2,9 @@ import { Post, stringToHtmlId } from "@/lib/posts"
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Image from 'next/image'
+
 import React from "react";
 type Args = {
     post: Post
@@ -41,6 +43,17 @@ export function BlogPost(props: Args) {
                                 {children}
                             </code>
                         )
+                    },
+                    img({ src, alt }) {
+                        return (
+                            <div >
+                                <Image
+                                    src={src!} alt={alt!}
+                                    width={300}
+                                    height={200}
+                                />
+                            </div>
+                        );
                     },
                 }}
             >

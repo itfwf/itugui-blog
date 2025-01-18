@@ -94,7 +94,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <BlogHeader post={postData} />
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row gap-8 max-w-full">
                 <aside className="w-full lg:w-1/4">
                     <TableOfContents items={tocItems} />
                 </aside>

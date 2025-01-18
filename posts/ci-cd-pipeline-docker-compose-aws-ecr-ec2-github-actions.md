@@ -209,4 +209,3 @@ Personally, I like to commit as often as possible and thus, the solution with gi
 > **colleague**: What version is currently on UAT?
 >
 > **me**: v1.2.3 or master.bf3c23d 
-
