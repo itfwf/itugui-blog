@@ -49,9 +49,9 @@ export function BlogPost(props: Args) {
                             <div >
                                 <Image
                                     src={src!} alt={alt!}
-                                    width={300}
-                                    height={200}
-                                />
+                                    width={500}
+                                    height={0}
+                                    layout="responsive" objectFit="contain" />
                             </div>
                         );
                     },
