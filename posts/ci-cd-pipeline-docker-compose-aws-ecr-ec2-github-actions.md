@@ -4,7 +4,7 @@ title: 'CI/CD Pipeline with GitHub Actions: Deploy Docker-Compose on AWS'
 excerpt: 'Looking to simplify your deployments? This step-by-step guide shows you how to build a powerful CI/CD pipeline with GitHub Actions to deploy Docker-Compose applications on AWS using ECR and EC2. Perfect for DevOps engineers and developers!'
 tags: ['CI/CD', 'Docker', 'GitHub Actions', 'AWS', 'ECR', 'EC2', 'docker-compose', 'DevOps', 'automation', 'cloud-deployment']
 readTime: 5 min
-date: '2024-11-24'
+date: '2025-01-18'
 image: ci-cd-pipeline-aws-github-actions.webp
 ---
 

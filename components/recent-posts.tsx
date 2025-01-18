@@ -1,11 +1,12 @@
-import { getRecentPosts, } from "@/lib/posts";
+import { getAllPosts, } from "@/lib/posts";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import Image from 'next/image'
 import { Card, CardHeader, CardTitle, CardFooter } from "./ui/card";
 import Link from "next/link";
 
 export const RecentPosts = () => {
-    const posts = getRecentPosts();
+    const posts = getAllPosts();
 
     return (
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
@@ -14,8 +15,8 @@ export const RecentPosts = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {posts.map((post) => (
                         <Card key={post.slug} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <img
-                                src={`/images/${post.image}`}
+                            <Image
+                                src={`/images/${post.slug}/${post.image}`}
                                 alt={post.title}
                                 width={500}
                                 height={150}

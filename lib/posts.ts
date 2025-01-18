@@ -6,7 +6,6 @@ import { remark, } from 'remark';
 import html from "remark-html";
 
 export type PostPreview = {
-
   slug: string;
   title: string;
   date: string;
@@ -34,7 +33,7 @@ export type TocItem = {
 }
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-export const getRecentPosts = () => {
+export const getAllPosts = () => {
 
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
