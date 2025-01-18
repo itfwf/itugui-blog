@@ -13,7 +13,7 @@ export function BlogHeader(props: Args) {
             {post.image && (
                 <div className="relative w-full h-64 md:h-96">
                     <Image
-                        src={`/images/${post.image}` || '/images/placeholder.svg'}
+                        src={`/images/${post.slug}/${post.image}` || '/images/placeholder.svg'}
                         alt={post.title}
                         fill
                         className="object-cover rounded-lg"
