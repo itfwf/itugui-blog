@@ -23,6 +23,7 @@ Manually updating the version of any application is **time consuming** and **err
 Do not open ports to the internet.
 For my current setup only port 80 is [limited to CloudFront](https://aws.amazon.com/blogs/networking-and-content-delivery/limit-access-to-your-origins-using-the-aws-managed-prefix-list-for-amazon-cloudfront/), and rest are opened to only my IP.
 
+Are you wondering how I'm able to deploy from the Github Runner if it cannot access the EC2? Let's see the [pipeline](#pipeline-code).
 
 ## CI/CD with Github Actions
 Let's see the yaml code that make the ci/cd pipeline allowing build, test and deploy dockerized apps.
@@ -41,32 +42,55 @@ Let's see the yaml code that make the ci/cd pipeline allowing build, test and de
     * Pull docker images from ECR,
     * Start services with docker compose.
 
+The below pipeline runs whenever a new tag is created.
+To create a new tag you can run the following commands.
+```powershell
+git tag v1.1.6; git push origin --tags
+```
+
+Another alternative to manually create a new tag from command line it to create a new release from the Github UI.
+
+
+## Key Points
+
+* All traffic is blocked for security to the EC2, except the pot 80 that is opened to CloudFront.
+* Each time the pipeline runs, the security groups is modified to allow inbound traffic on the ssh port, 22. 
+When the pipeline finishes the IP is removed (either if it run succesfully or not).
+* On each deploy I'm backing up the postgres database to S3 bucket - just in case something went wrong.
+* **Make sure to double tag the docker image**. If not, when pushing another latest image, you will be left with *dangling images*.
+> **A dangling image just means that you've created the new build of the image, but it wasn't given a new name.** So the old images you have becomes the "dangling image". Those old image are the ones that are untagged and displays "<none>" on its name when you run docker images.
+
+There are many improvements that can be done, but, as for now, I think this CI/CD pipeline is enough for a small startup or individual that just want to get things out there.
+
+In the end, maybe I will get time to create a demo repository with the whole setup.
+
+
+### Pipeline code
 ```yaml
-name: CD Pipeline
+name: CI/CD Pipeline
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    # branches: [ "master" ]
+    tags:
+      - v*
 
 jobs:  
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-  
-    - name: Get Tags
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Set Git tag version
       id: vars
       run: |
-          BRANCH_NAME=${GITHUB_REF#refs/heads/}
-          SHORT_SHA=${GITHUB_SHA::7}
-          echo "BRANCH_NAME=${BRANCH_NAME}"
-          echo "SHORT_SHA=${SHORT_SHA}"
-          echo "::set-output name=branch::${BRANCH_NAME}"
-          echo "::set-output name=short_sha::${SHORT_SHA}"
+         echo "Building version: ${{  github.ref_name }}"
+         echo "tag=${{  github.ref_name }}" >> $GITHUB_OUTPUT
+    - name: Echo Version
+      run: |
+          echo "Image tag is: curriculumapi:${{ steps.vars.outputs.tag }}"
     - name: Build API
-      run: docker build ./src/Curriculum.API/ --file ./src/Curriculum.API/Dockerfile -t curriculumapi:latest
+      run: docker build ./src/ --file ./src/Curriculum.API/Dockerfile -t curriculumapi:latest
     - name: Push to ECR
       id: ecr
       uses: jwalton/gh-ecr-push@v2
@@ -75,7 +99,7 @@ jobs:
         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: ${{ secrets.AWS_DEFAULT_REGION }}
         local-image: curriculumapi:latest
-        image: curriculumapi:latest, curriculumapi:${{ steps.vars.outputs.branch }}.${{ steps.vars.outputs.short_sha }}
+        image: curriculumapi:latest, curriculumapi:${{ steps.vars.outputs.tag }}
         
     - name: Build Generator
       run: docker build ./src/Curriculum.Generator/ --file ./src/Curriculum.Generator/Dockerfile --tag generator:latest
@@ -87,7 +111,7 @@ jobs:
         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         region: ${{ secrets.AWS_DEFAULT_REGION }}
         local-image: generator:latest
-        image: generator:latest, generator:${{ steps.vars.outputs.branch }}.${{ steps.vars.outputs.short_sha }}
+        image: generator:latest, generator:${{ steps.vars.outputs.tag }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -116,7 +140,7 @@ jobs:
         chmod 600 key.pem
      - name: Docker login
        run:  |
-        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 616165028566.dkr.ecr.eu-central-1.amazonaws.com'
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_NAME }}'
      - name: Stop services
        run:  |
         ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker-compose stop generator curriculum.api'
@@ -147,16 +171,16 @@ jobs:
         "
      - name: Remove API Image
        run:  |
-        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker rmi 616165028566.dkr.ecr.eu-central-1.amazonaws.com/curriculumapi || true'
-     - name: Remove React-PDF Image
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker rmi ${{ secrets.AWS_ECR_NAME }}/curriculumapi || true'
+     - name: Remove Generator Image
        run:  |
-        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker rmi 616165028566.dkr.ecr.eu-central-1.amazonaws.com/generator || true'
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker rmi ${{ secrets.AWS_ECR_NAME }}/generator || true'
      - name: Pull API Image
        run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker pull 616165028566.dkr.ecr.eu-central-1.amazonaws.com/curriculumapi'
-     - name: Pull React-Pdf Image
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker pull ${{ secrets.AWS_ECR_NAME }}/curriculumapi'
+     - name: Pull Generator Image
        run: |
-        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker pull 616165028566.dkr.ecr.eu-central-1.amazonaws.com/generator'
+        ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker pull ${{ secrets.AWS_ECR_NAME }}/generator'
      - name: Start services
        run:  |
         ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@${{ secrets.EC2_INSTANCE_IP }} 'docker-compose up -d'
@@ -171,3 +195,18 @@ jobs:
      - name: Clean up
        if: always()
        run: rm key.pem
+```
+
+
+Another version of this pipeline that I experimeted with is the following:
+- on each commit to master, running the pipeline,
+- docker image tag was create {branch}.{commit}
+![See examples of docker image tags](/images/ci-cd-pipeline-docker-compose-aws-ecr-ec2-github-actions/docker-images-tags-example.png)
+
+Personally, I like to commit as often as possible and thus, the solution with git tags is more enterprise and also the version has a meaning.
+
+
+> **colleague**: What version is currently on UAT?
+>
+> **me**: v1.2.3 or master.bf3c23d 
+

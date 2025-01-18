@@ -3,17 +3,26 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import React, { PropsWithChildren } from "react";
+import CodeCopyBtn from "./post-copy-code";
 type Args = {
     post: Post
 }
 
 export function BlogPost(props: Args) {
     const { post } = props;
+
+    const Pre = ({ raw, children }: any) => <pre className="blog-pre">
+        <CodeCopyBtn>{children}</CodeCopyBtn>
+        {children}
+    </pre>
+
     return (
-        <article className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl dark:prose-invert mx-auto pt-6">
+        <article className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl dark:prose-invert mx-auto py-6">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
+                    // pre: Pre,
                     h1({ children, }) {
                         return <h1 id={stringToHtmlId(children as string)} >{children}</h1>
                     },
@@ -47,3 +56,4 @@ export function BlogPost(props: Args) {
         </article>
     )
 }
+
