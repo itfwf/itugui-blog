@@ -27,26 +27,12 @@ export type Post = {
   image: string;
 }
 
+export type TocItem = {
+  id: string
+  title: string
+  level: number
+}
 const postsDirectory = path.join(process.cwd(), 'posts');
-
-// export function getSortedPostsData() {
-//   const fileNames = fs.readdirSync(postsDirectory);
-//   const allPostsData = fileNames.map((fileName) => {
-//     const slug = fileName.replace(/\.md$/, '');
-//     const fullPath = path.join(postsDirectory, fileName);
-//     const fileContents = fs.readFileSync(fullPath, 'utf8');
-//     const matterResult = matter(fileContents);
-//     console.log(matterResult.data);
-//     return {
-//       slug,
-//       ...matterResult.data,
-//     };
-//   });
-
-//   return allPostsData.sort(({ date: a }, { date: b }) => {
-//     return new Date(b) - new Date(a);
-//   });
-// }
 
 export const getRecentPosts = () => {
 
@@ -79,4 +65,24 @@ export function getPostData(slug: string): Post {
 export default async function markdownToHtml(markdown: string) {
   const result = await remark().use(html).process(markdown);
   return result.toString();
+}
+
+export function getTableOfContets(content: string): TocItem[] {
+  const headingRegex = /^(#{1,3})\s+(.+)$/gm
+  const tocItems: TocItem[] = []
+
+  let match
+  while ((match = headingRegex.exec(content)) !== null) {
+    tocItems.push({
+      id: stringToHtmlId(match[2]),
+      title: match[2],
+      level: match[1].length,
+    })
+  }
+
+  return tocItems
+}
+
+export function stringToHtmlId(value: string): string {
+  return value.toLowerCase().replace(/[^\w]+/g, '-');
 }

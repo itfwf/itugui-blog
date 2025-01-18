@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Dev Hub - .NET, React, and AWS Development Blog',
     description: 'Follow my journey as a .NET developer tackling React and AWS challenges. Discover tips, tricks, and real-world solutions for modern software engineering and web development.',
-    url: 'https://www.itugui.com',
+    url: 'https://itugui.com',
     type: 'website',
     siteName: 'ITugui - Dev Hub Blog',
     locale: 'en_US',
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     ],
     apple: '/images/apple-touch-icon.png',
   },
-  authors: [{ name: '@itugui', url: 'https://www.itugui.com' }],
+  authors: [{ name: '@itugui', url: 'https://itugui.com' }],
   applicationName: 'ITugui - Dev Hub Blog',
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: 'https://www.itugui.com',
+    canonical: 'https://.itugui.com',
   },
 };
 export const viewport = {
