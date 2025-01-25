@@ -6,6 +6,7 @@ import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Image from 'next/image'
 
 import React from "react";
+import { cn } from "@/lib/utils";
 type Args = {
     post: Post
 }
@@ -39,8 +40,8 @@ export function BlogPost(props: Args) {
                                 {String(children).replace(/\n$/, '')}
                             </SyntaxHighlighter>
                         ) : (
-                            <code className={className} {...props}>
-                                {children}
+                            <code className={cn('bg-gray-100', className)} {...props}>
+                                {String(children).replace(/\n$/, '')}
                             </code>
                         )
                     },

@@ -55,7 +55,25 @@ const config: Config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			}
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						'code::before': {
+							content: '" "'
+						},
+						'code::after': {
+							content: '" "'
+						},
+						'blockquote p:first-of-type::before': {
+							content: '""'
+						},
+						'blockquote p:first-of-type::after': {
+							content: '""'
+						}
+					}
+				}
+			},
 		}
 	},
 	plugins: [
