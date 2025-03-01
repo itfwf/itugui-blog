@@ -2,12 +2,21 @@
 import { BlogHeader } from "@/components/blog-header";
 import { BlogPost } from "@/components/blog-post";
 import { TableOfContents } from "@/components/blog-table-of-contents";
-import { getPostData, getTableOfContets } from "@/lib/posts";
+import { getAllPosts, getPostData, getTableOfContets, PostPreview } from "@/lib/posts";
 import { Metadata, ResolvingMetadata } from "next";
 
 type PostProps = {
     params: { slug: string }
 }
+
+export async function generateStaticParams() {
+    const posts = await getAllPosts();
+
+    return posts.map((post: PostPreview) => ({
+        slug: post.slug,
+    }));
+}
+
 export async function generateMetadata(
     { params }: PostProps,
     parent: ResolvingMetadata
@@ -55,7 +64,6 @@ export async function generateMetadata(
 
     };
 }
-
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
     const postData = getPostData(params.slug);
