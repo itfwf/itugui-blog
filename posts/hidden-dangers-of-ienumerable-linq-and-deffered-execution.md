@@ -112,7 +112,8 @@ At first glances everything looked ok, nothing was triggering the alarm, but one
 
 ![Output ](/images/hidden-dangers-of-ienumerable-linq-and-deffered-execution/bug-output-response.jpg)
 
-#### What Went Wrong?
+### What Went Wrong?
+
 1. The incoming request was mapped to an internal domain object.
 2. The mapping logic for `LineItem`s was defined using LINQ but was **not executed immediately**.
 3. The first iteration over `Items` triggered execution, setting the delivery field.
