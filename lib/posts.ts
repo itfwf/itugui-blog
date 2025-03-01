@@ -83,5 +83,11 @@ export function getTableOfContets(content: string): TocItem[] {
 }
 
 export function stringToHtmlId(value: string): string {
-  return value.toLowerCase().replace(/[^\w]+/g, '-');
+  const stringValue = Array.isArray(value) ? value.join('') : String(value);
+
+  if (typeof value !== 'string') {
+    console.error('Expected a string, but got:', value);
+    return ''; // Or a fallback string
+  }
+  return stringValue.toLowerCase().replace(/[^\w]+/g, '-');
 }

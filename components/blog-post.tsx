@@ -47,13 +47,11 @@ export function BlogPost(props: Args) {
                     },
                     img({ src, alt }) {
                         return (
-                            <div >
-                                <Image
-                                    src={src!} alt={alt!}
-                                    width={500}
-                                    height={0}
-                                    layout="responsive" objectFit="contain" />
-                            </div>
+                            <Image
+                                src={src!} alt={alt!}
+                                width={500}
+                                height={0}
+                                layout="responsive" objectFit="contain" />
                         );
                     },
                 }}

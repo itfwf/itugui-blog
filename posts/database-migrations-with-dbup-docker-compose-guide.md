@@ -1,7 +1,7 @@
 ---
 slug: 'database-migrations-with-dbup-docker-compose-guide'
-title: 'DbUp Migrations with Docker Compose: A Guide for .NET Developers'
-excerpt: 'Learn how to automate database migrations with DbUp in a Docker Compose setup. This guide walks you through integrating DbUp with Docker Compose for a streamlined .NET development experience.'
+title: 'Automate Database Migrations with DbUp and Docker Compose: A .NET Developer’s Guide'
+excerpt: 'Learn how to integrate DbUp with Docker Compose for seamless database migrations in your .NET projects. Automate your migrations and streamline your workflow.'
 tags: ['.NET', 'DbUp', 'Docker', 'docker-compose', 'database-migrations', 'DevOps', 'Dapper', 'programming']
 readTime: 7 min
 date: '2025-01-24'

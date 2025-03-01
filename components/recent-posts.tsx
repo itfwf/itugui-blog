@@ -16,7 +16,7 @@ export const RecentPosts = () => {
                     {posts.map((post) => (
                         <Card key={post.slug} className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <Image
-                                src={`/images/${post.slug}/${post.image}`}
+                                src={post.image ? `/images/${post.slug}/${post.image}` : "/images/dotnet-logo.svg"}
                                 alt={post.title}
                                 width={500}
                                 height={150}
