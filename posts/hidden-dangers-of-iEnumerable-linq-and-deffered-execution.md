@@ -1,5 +1,5 @@
 ---
-slug: 'hidden-dangers-of-iEnumerable-linq-and-deffered-execution'
+slug: 'hidden-dangers-of-ienumerable-linq-and-deffered-execution'
 title: 'How LINQ Deferred Execution Can Double Memory Allocation and Affect Performance'
 excerpt: "Learn how LINQ's deferred execution can unintentionally double memory allocation and degrade performance. A small oversight led to significant resource consumption."
 tags: ['IEnumerable', 'bug', 'refactor', "c#", "Deferred Execution"]
@@ -107,10 +107,10 @@ Calling `.ToList()` forces execution immediately, storing the results in memory.
 We had a simple API endpoint that processed incoming order requests. It mapped an `OrderRequest` to an internal `Order` domain object, enriched it with additional properties, and sent it to another service.
 
 Here’s the problematic code:
-![The code that caused the bug](/images/hidden-dangers-of-iEnumerable-linq-and-deffered-execution/bug-setup-code.jpg)
+![The code that caused the bug](/images/hidden-dangers-of-ienumerable-linq-and-deffered-execution/bug-setup-code.jpg)
 At first glances everything looked ok, nothing was triggering the alarm, but one critical field, `delivery`, was missing from the outgoing request. After debugging, the issue became clear:
 
-![Output ](/images/hidden-dangers-of-iEnumerable-linq-and-deffered-execution/bug-output-response.jpg)
+![Output ](/images/hidden-dangers-of-ienumerable-linq-and-deffered-execution/bug-output-response.jpg)
 
 #### What Went Wrong?
 1. The incoming request was mapped to an internal domain object.
