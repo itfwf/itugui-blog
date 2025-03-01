@@ -1,6 +1,6 @@
 ---
 slug: 'hidden-dangers-of-ienumerable-linq-and-deffered-execution'
-title: 'How LINQ Deferred Execution Can Double Memory Allocation and Affect Performance'
+title: 'How LINQ deferred execution can double memory allocation and add bugs'
 excerpt: "Learn how LINQ's deferred execution can unintentionally double memory allocation and degrade performance. A small oversight led to significant resource consumption."
 tags: ['IEnumerable', 'bug', 'refactor', "c#", "Deferred Execution"]
 readTime: 5 min
