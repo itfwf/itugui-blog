@@ -1,0 +1,43 @@
+<svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="placeholderTitle" role="img">
+  <title id="placeholderTitle">Placeholder image for blog post</title>
+  
+  {/* Optional: A very faint background for the SVG itself, if you want it to have a slight tint instead of being fully transparent.
+      You can control this via CSS on the parent element too.
+  <rect width="200" height="150" fill="currentColor" opacity="0.02"/>
+  */}
+
+  {/* Main rectangle border (simulating the image frame) */}
+  <rect 
+    x="1.5" 
+    y="1.5" 
+    width="197" 
+    height="147" 
+    rx="3" 
+    stroke="currentColor" 
+    stroke-opacity="0.5" 
+    stroke-width="2"
+  />
+
+  {/* Stylized landscape icon (mountains) */}
+  <path 
+    d="M40 115 L75 75 L100 95 L130 60 L170 115 H40 Z" 
+    fill="currentColor" 
+    fill-opacity="0.1" 
+    stroke="currentColor" 
+    stroke-opacity="0.4" 
+    stroke-width="2" 
+    stroke-linejoin="round"
+  />
+
+  {/* Sun/Moon icon */}
+  <circle 
+    cx="145" 
+    cy="50" 
+    r="12" 
+    fill="currentColor" 
+    fill-opacity="0.1" 
+    stroke="currentColor" 
+    stroke-opacity="0.4" 
+    stroke-width="2"
+  />
+</svg>
