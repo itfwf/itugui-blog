@@ -53,22 +53,57 @@ export default function AboutMe() {
                             <Badge>C#</Badge>
                             <Badge>ASP.NET Core</Badge>
                             <Badge>Entity Framework</Badge>
-                            <Badge>SQL Server</Badge>
                             <Badge>AWS</Badge>
                             <Badge>GraphQL</Badge>
                             <Badge>RESTful APIs</Badge>
                             <Badge>Microservices</Badge>
                             <Badge>Docker</Badge>
-                            <Badge>Git</Badge>
                         </div>
                     </section>
+                    <section className="mb-12">
+                        <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
 
+                        <div className="mb-6 rounded-lg border p-4 shadow-sm">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-xl font-bold">Resume Builder</h3>
+                                <a
+                                    target="_blank"
+                                    href="https://resumegencv.com"
+                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80"
+                                    rel="noopener noreferrer"
+                                >
+                                    Create your Resume →
+                                </a>
+                            </div>
+                            <p className="mt-2 text-muted-foreground">
+                                <ul>
+                                    <li>Getting rid of annoying paywalls.</li>
+                                    <li>Accessible to everyone.</li>
+                                    <li>Perfect ATS Templates.</li>
+                                    <li>Cover Letter Builder.</li>
+                                </ul>
+                            </p>
+                            <div className="mt-3">
+                                <span className="font-medium text-sm mr-2">Tech Stack:</span>
+                                <div className="flex gap-2">
+                                    <Badge variant="secondary">ASP.NET Core</Badge>
+                                    <Badge variant="secondary">React</Badge>
+                                    <Badge variant="secondary">NextJS</Badge>
+                                    <Badge variant="secondary">Entity Framework</Badge>
+                                    <Badge variant="secondary">PostgreSQL</Badge>
+                                    <Badge variant="secondary">AWS</Badge>
+                                    <Badge variant="secondary">Hetzner</Badge>
+                                    <Badge variant="secondary">Some Vibes</Badge>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     <section>
                         <RecentPosts />
                     </section>
                 </main>
             </div>
-        </div>
+        </div >
 
     )
 }
