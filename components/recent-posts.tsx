@@ -46,7 +46,7 @@ export const RecentPosts = () => {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                 </div>
-                                <CardHeader className="p-5 sm:p-6 flex-grow">
+                                <CardHeader className="p-5 sm:p-6 grow">
                                     <CardTitle className="text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-200">
                                         {post.title}
                                     </CardTitle>

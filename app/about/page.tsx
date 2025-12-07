@@ -63,13 +63,13 @@ export default function AboutMe() {
                     <section className="mb-12">
                         <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
 
-                        <div className="mb-6 rounded-lg border p-4 shadow-sm">
+                        <div className="mb-6 rounded-lg border p-4 shadow-xs">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-xl font-bold">Resume Builder</h3>
                                 <a
                                     target="_blank"
                                     href="https://resumegencv.com"
-                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80"
+                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
                                     rel="noopener noreferrer"
                                 >
                                     Create your Resume →
@@ -85,13 +85,44 @@ export default function AboutMe() {
                             </p>
                             <div className="mt-3">
                                 <span className="font-medium text-sm mr-2">Tech Stack:</span>
-                                <div className="flex gap-2">
+                                <div className="flex flex-wrap gap-2">
                                     <Badge variant="secondary">ASP.NET Core</Badge>
                                     <Badge variant="secondary">React</Badge>
                                     <Badge variant="secondary">NextJS</Badge>
                                     <Badge variant="secondary">Entity Framework</Badge>
                                     <Badge variant="secondary">PostgreSQL</Badge>
                                     <Badge variant="secondary">AWS</Badge>
+                                    <Badge variant="secondary">Hetzner</Badge>
+                                    <Badge variant="secondary">Some Vibes</Badge>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mb-6 rounded-lg border p-4 shadow-xs">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-xl font-bold">substitutr.com</h3>
+                                <a
+                                    target="_blank"
+                                    href="https://substitutr.com/"
+                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
+                                    rel="noopener noreferrer"
+                                >
+                                    Find alternatives →
+                                </a>
+                            </div>
+                            <p className="mt-2 text-muted-foreground">
+                                <ul>
+                                    <li>Discover <strong>better or free and open-source alternatives</strong> to popular software and services.</li>
+                                    <li>Find substitutes for tools with <strong>annoying paywalls or restrictive pricing</strong>.</li>
+                                    <li>Features a searchable, <strong>community-curated database</strong> of replacements.</li>
+                                    <li>Focused on providing <strong>accessible and cost-effective</strong> options for everyone.</li>
+                                </ul>
+                            </p>
+                            <div className="mt-3">
+                                <span className="font-medium text-sm mr-2">Tech Stack:</span>
+                                <div className="flex flex-wrap gap-2">
+                                    <Badge variant="secondary">ASP.NET Core</Badge>
+                                    <Badge variant="secondary">Entity Framework</Badge>
+                                    <Badge variant="secondary">PostgreSQL</Badge>
                                     <Badge variant="secondary">Hetzner</Badge>
                                     <Badge variant="secondary">Some Vibes</Badge>
                                 </div>

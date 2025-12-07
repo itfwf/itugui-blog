@@ -11,7 +11,7 @@ export function BlogHeader(props: Args) {
     return (
         <header className="mb-12 w-full flex flex-col gap-6 items-center text-center">
             {post.image && (
-                <div className="relative w-full h-60 sm:h-80 md:h-[32rem] overflow-hidden rounded-2xl shadow">
+                <div className="relative w-full h-60 sm:h-80 md:h-128 overflow-hidden rounded-2xl shadow-sm">
                     <Image
                         src={post.image ? `/images/${post.slug}/${post.image}` : '/images/placeholder.svg'}
                         alt={post.title}

@@ -96,7 +96,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     };
 
     return (
-        <div className="mx-auto w-full max-w-screen-xl px-6 pt-16 lg:pt-24">
+        <div className="mx-auto w-full max-w-(--breakpoint-xl) px-6 pt-16 lg:pt-24">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
