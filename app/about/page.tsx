@@ -31,13 +31,6 @@ export const metadata = {
       "Ioan Tugui is a passionate .NET Developer specializing in C#, ASP.NET Core, and scalable architectures. See his work on Resume Builder and Substitutr.",
     url: "https://itugui.com/about",
     siteName: "Ioan Tugui's Blog & Portfolio",
-    images: [
-      {
-        url: "https://itugui.com/itugui-social-share-image.png",
-        height: 630,
-        alt: "Ioan Tugui Profile and .NET Development",
-      },
-    ],
     locale: "en_US",
     type: "profile", 
   },
