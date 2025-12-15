@@ -8,7 +8,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react"
 export const metadata = {
   title: "Ioan Tugui - .NET Developer & Software Engineer Portfolio",
   description:
-    "Ioan Tugui is a passionate .NET Developer with over 5 years of experience building robust applications with C#, ASP.NET Core, and AWS. Check out his projects and recent posts on itugui.com.",
+    "Ioan Tugui is a passionate .NET Developer with over 5 years of experience building robust applications with C#, ASP.NET Core, and AWS.",
   keywords: [
     "Ioan Tugui",
     ".NET Developer",
