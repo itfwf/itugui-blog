@@ -4,137 +4,211 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react"
 
+
+export const metadata = {
+  title: "Ioan Tugui - .NET Developer & Software Engineer Portfolio",
+  description:
+    "Ioan Tugui is a passionate .NET Developer with over 5 years of experience building robust applications with C#, ASP.NET Core, and AWS. Check out his projects and recent posts on itugui.com.",
+  keywords: [
+    "Ioan Tugui",
+    ".NET Developer",
+    "C#",
+    "ASP.NET Core",
+    "Software Engineer",
+    "AWS",
+    "GraphQL",
+    "Microservices",
+    "itugui.com",
+  ],
+
+  alternates: {
+    canonical: "https://itugui.com/about",
+  },
+
+  openGraph: {
+    title: "Ioan Tugui - .NET Developer & Software Engineer",
+    description:
+      "Ioan Tugui is a passionate .NET Developer specializing in C#, ASP.NET Core, and scalable architectures. See his work on Resume Builder and Substitutr.",
+    url: "https://itugui.com/about",
+    siteName: "Ioan Tugui's Blog & Portfolio",
+    images: [
+      {
+        url: "https://itugui.com/itugui-social-share-image.png",
+        height: 630,
+        alt: "Ioan Tugui Profile and .NET Development",
+      },
+    ],
+    locale: "en_US",
+    type: "profile", 
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Ioan Tugui | .NET Developer | C# | AWS",
+    description:
+      "Ioan Tugui, a .NET Developer specializing in C#, ASP.NET Core, and scalable architectures. See his work on Resume Builder and Substitutr.",
+    creator: "@o0wWL", 
+  },
+};
+
 export default function AboutMe() {
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Ioan Tugui",
+        jobTitle: ".NET Developer & Software Engineer",
+        url: "https://itugui.com/about",
+        sameAs: [
+            "https://github.com/itfwf",
+            "https://www.linkedin.com/in/itugui/",
+            "https://x.com/o0wWL",
+            "https://itugui.com",
+        ],
+        knowsAbout: [
+            "C#",
+            "ASP.NET Core",
+            "Entity Framework",
+            "AWS",
+            "GraphQL",
+            "Microservices",
+        ],
+    };
     return (
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-start px-4 pt-16 md:flex-row">
-            <div className="container mx-auto px-4 py-8">
-                <header className="mb-12 text-center">
-                    <Avatar className="mx-auto h-32 w-32">
-                        <AvatarImage alt="Ioan Tugui" src="/placeholder.svg?height=128&width=128" />
-                        <AvatarFallback>IT</AvatarFallback>
-                    </Avatar>
-                    <h1 className="mt-4 text-3xl font-bold">Ioan Tugui</h1>
-                    <p className="text-xl text-muted-foreground">.NET Developer</p>
-                    <div className="mt-4 flex justify-center space-x-4">
-                        <a href="https://github.com/itfwf" target="_blank" rel="noopener noreferrer">
-                            <Button size="icon" variant="ghost">
-                                <GithubIcon className="h-5 w-5" />
-                                <span className="sr-only">GitHub</span>
-                            </Button>
-                        </a>
-                        <a href="https://www.linkedin.com/in/itugui/" target="_blank" rel="noopener noreferrer">
-                            <Button size="icon" variant="ghost">
-                                <LinkedinIcon className="h-5 w-5" />
-                                <span className="sr-only">LinkedIn</span>
-                            </Button>
-                        </a>
-                        <a href="https://x.com/o0wWL" target="_blank" rel="noopener noreferrer">
-                            <Button size="icon" variant="ghost">
-                                <TwitterIcon className="h-5 w-5" />
-                                <span className="sr-only">Twitter</span>
-                            </Button>
-                        </a>
-                    </div>
-                </header>
-
-                <main>
-                    <section className="mb-12">
-                        <h2 className="mb-4 text-2xl font-semibold">About Me</h2>
-                        <p className="text-muted-foreground">
-                            Hi there! {"I'm"} Ioan, a passionate .NET developer with over 5 years of experience in building robust and
-                            scalable applications. I love working with C#, ASP.NET Core, and exploring the latest features in the .NET
-                            ecosystem.
-                        </p>
-                    </section>
-
-                    <section className="mb-12">
-                        <h2 className="mb-4 text-2xl font-semibold">Skills</h2>
-                        <div className="flex flex-wrap gap-2">
-                            <Badge>C#</Badge>
-                            <Badge>ASP.NET Core</Badge>
-                            <Badge>Entity Framework</Badge>
-                            <Badge>AWS</Badge>
-                            <Badge>GraphQL</Badge>
-                            <Badge>RESTful APIs</Badge>
-                            <Badge>Microservices</Badge>
-                            <Badge>Docker</Badge>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
+            <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-start px-4 pt-16 md:flex-row">
+                <div className="container mx-auto px-4 py-8">
+                    <header className="mb-12 text-center">
+                        <Avatar className="mx-auto h-32 w-32">
+                            <AvatarImage alt="Ioan Tugui" src="/placeholder.svg?height=128&width=128" />
+                            <AvatarFallback>IT</AvatarFallback>
+                        </Avatar>
+                        <h1 className="mt-4 text-3xl font-bold">Ioan Tugui</h1>
+                        <p className="text-xl text-muted-foreground">.NET Developer</p>
+                        <div className="mt-4 flex justify-center space-x-4">
+                            <a href="https://github.com/itfwf" target="_blank" rel="noopener noreferrer">
+                                <Button size="icon" variant="ghost">
+                                    <GithubIcon className="h-5 w-5" />
+                                    <span className="sr-only">GitHub</span>
+                                </Button>
+                            </a>
+                            <a href="https://www.linkedin.com/in/itugui/" target="_blank" rel="noopener noreferrer">
+                                <Button size="icon" variant="ghost">
+                                    <LinkedinIcon className="h-5 w-5" />
+                                    <span className="sr-only">LinkedIn</span>
+                                </Button>
+                            </a>
+                            <a href="https://x.com/o0wWL" target="_blank" rel="noopener noreferrer">
+                                <Button size="icon" variant="ghost">
+                                    <TwitterIcon className="h-5 w-5" />
+                                    <span className="sr-only">Twitter</span>
+                                </Button>
+                            </a>
                         </div>
-                    </section>
-                    <section className="mb-12">
-                        <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
+                    </header>
 
-                        <div className="mb-6 rounded-lg border p-4 shadow-xs">
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-bold">Resume Builder</h3>
-                                <a
-                                    target="_blank"
-                                    href="https://resumegencv.com"
-                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
-                                    rel="noopener noreferrer"
-                                >
-                                    Create your Resume →
-                                </a>
-                            </div>
-                            <p className="mt-2 text-muted-foreground">
-                                <ul>
-                                    <li>Getting rid of annoying paywalls.</li>
-                                    <li>Accessible to everyone.</li>
-                                    <li>Perfect ATS Templates.</li>
-                                    <li>Cover Letter Builder.</li>
-                                </ul>
+                    <main>
+                        <section className="mb-12">
+                            <h2 className="mb-4 text-2xl font-semibold">About Me</h2>
+                            <p className="text-muted-foreground">
+                                Hi there! {"I'm"} Ioan, a passionate .NET developer with over 5 years of experience in building robust and
+                                scalable applications. I love working with C#, ASP.NET Core, and exploring the latest features in the .NET
+                                ecosystem.
                             </p>
-                            <div className="mt-3">
-                                <span className="font-medium text-sm mr-2">Tech Stack:</span>
-                                <div className="flex flex-wrap gap-2">
-                                    <Badge variant="secondary">ASP.NET Core</Badge>
-                                    <Badge variant="secondary">React</Badge>
-                                    <Badge variant="secondary">NextJS</Badge>
-                                    <Badge variant="secondary">Entity Framework</Badge>
-                                    <Badge variant="secondary">PostgreSQL</Badge>
-                                    <Badge variant="secondary">AWS</Badge>
-                                    <Badge variant="secondary">Hetzner</Badge>
-                                    <Badge variant="secondary">Some Vibes</Badge>
+                        </section>
+
+                        <section className="mb-12">
+                            <h2 className="mb-4 text-2xl font-semibold">Skills</h2>
+                            <div className="flex flex-wrap gap-2">
+                                <Badge>C#</Badge>
+                                <Badge>ASP.NET Core</Badge>
+                                <Badge>Entity Framework</Badge>
+                                <Badge>AWS</Badge>
+                                <Badge>GraphQL</Badge>
+                                <Badge>RESTful APIs</Badge>
+                                <Badge>Microservices</Badge>
+                                <Badge>Docker</Badge>
+                            </div>
+                        </section>
+                        <section className="mb-12">
+                            <h2 className="mb-4 text-2xl font-semibold">Projects</h2>
+
+                            <div className="mb-6 rounded-lg border p-4 shadow-xs">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-xl font-bold">Resume Builder</h3>
+                                    <a
+                                        target="_blank"
+                                        href="https://resumegencv.com"
+                                        className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Create your Resume →
+                                    </a>
+                                </div>
+                                <p className="mt-2 text-muted-foreground">
+                                    <ul>
+                                        <li>Getting rid of annoying paywalls.</li>
+                                        <li>Accessible to everyone.</li>
+                                        <li>Perfect ATS Templates.</li>
+                                        <li>Cover Letter Builder.</li>
+                                    </ul>
+                                </p>
+                                <div className="mt-3">
+                                    <span className="font-medium text-sm mr-2">Tech Stack:</span>
+                                    <div className="flex flex-wrap gap-2">
+                                        <Badge variant="secondary">ASP.NET Core</Badge>
+                                        <Badge variant="secondary">React</Badge>
+                                        <Badge variant="secondary">NextJS</Badge>
+                                        <Badge variant="secondary">Entity Framework</Badge>
+                                        <Badge variant="secondary">PostgreSQL</Badge>
+                                        <Badge variant="secondary">AWS</Badge>
+                                        <Badge variant="secondary">Hetzner</Badge>
+                                        <Badge variant="secondary">Some Vibes</Badge>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="mb-6 rounded-lg border p-4 shadow-xs">
-                            <div className="flex items-center justify-between">
-                                <h3 className="text-xl font-bold">substitutr.com</h3>
-                                <a
-                                    target="_blank"
-                                    href="https://substitutr.com/"
-                                    className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
-                                    rel="noopener noreferrer"
-                                >
-                                    Find alternatives →
-                                </a>
-                            </div>
-                            <p className="mt-2 text-muted-foreground">
-                                <ul>
-                                    <li>Discover <strong>better or free and open-source alternatives</strong> to popular software and services.</li>
-                                    <li>Find substitutes for tools with <strong>annoying paywalls or restrictive pricing</strong>.</li>
-                                    <li>Features a searchable, <strong>community-curated database</strong> of replacements.</li>
-                                    <li>Focused on providing <strong>accessible and cost-effective</strong> options for everyone.</li>
-                                </ul>
-                            </p>
-                            <div className="mt-3">
-                                <span className="font-medium text-sm mr-2">Tech Stack:</span>
-                                <div className="flex flex-wrap gap-2">
-                                    <Badge variant="secondary">ASP.NET Core</Badge>
-                                    <Badge variant="secondary">Entity Framework</Badge>
-                                    <Badge variant="secondary">PostgreSQL</Badge>
-                                    <Badge variant="secondary">Hetzner</Badge>
-                                    <Badge variant="secondary">Some Vibes</Badge>
+                            <div className="mb-6 rounded-lg border p-4 shadow-xs">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-xl font-bold">substitutr.com</h3>
+                                    <a
+                                        target="_blank"
+                                        href="https://substitutr.com/"
+                                        className="inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold transition-colors focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-primary/80"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Find alternatives →
+                                    </a>
+                                </div>
+                                <p className="mt-2 text-muted-foreground">
+                                    <ul>
+                                        <li>Discover <strong>better or free and open-source alternatives</strong> to popular software and services.</li>
+                                        <li>Find substitutes for tools with <strong>annoying paywalls or restrictive pricing</strong>.</li>
+                                        <li>Features a searchable, <strong>community-curated database</strong> of replacements.</li>
+                                        <li>Focused on providing <strong>accessible and cost-effective</strong> options for everyone.</li>
+                                    </ul>
+                                </p>
+                                <div className="mt-3">
+                                    <span className="font-medium text-sm mr-2">Tech Stack:</span>
+                                    <div className="flex flex-wrap gap-2">
+                                        <Badge variant="secondary">ASP.NET Core</Badge>
+                                        <Badge variant="secondary">Entity Framework</Badge>
+                                        <Badge variant="secondary">PostgreSQL</Badge>
+                                        <Badge variant="secondary">Hetzner</Badge>
+                                        <Badge variant="secondary">Some Vibes</Badge>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <section>
-                        <RecentPosts />
-                    </section>
-                </main>
-            </div>
-        </div >
-
+                        </section>
+                        <section>
+                            <RecentPosts />
+                        </section>
+                    </main>
+                </div>
+            </div >
+        </>
     )
 }
