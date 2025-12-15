@@ -4,6 +4,9 @@ import Posts from '@/components/posts';
 
 export const metadata: Metadata = {
 
+  alternates: {
+    canonical: 'https://itugui.com',
+  }
 }
 export default async function Home() {
 
